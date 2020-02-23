@@ -1,0 +1,11 @@
+/data/home/kshitiz16051/.local/lib/python3.5/site-packages/torch/nn/functional.py:52: UserWarning: size_average and reduce args will be deprecated, please use reduction='none' instead.
+  warnings.warn(warning.format(ret))
+Traceback (most recent call last):
+  File "train.py", line 407, in <module>
+    main(args)
+  File "train.py", line 186, in main
+    model.load_state_dict(pretrained_dict, strict=False)
+  File "/data/home/kshitiz16051/.local/lib/python3.5/site-packages/torch/nn/modules/module.py", line 719, in load_state_dict
+    self.__class__.__name__, "\n\t".join(error_msgs)))
+RuntimeError: Error(s) in loading state_dict for InverseCookingModel:
+	size mismatch for ingredient_encoder.linear.weight: copying a param of torch.Size([82, 512]) from checkpoint, where the shape is torch.Size([1488, 512]) in current model.
