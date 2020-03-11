@@ -1,4 +1,4 @@
 # MCA_Project
 Recipe and video generation
 
-Link for the Recipe Videos : https://drive.google.com/drive/folders/1cV0VGdKDTBaDFCOqOnF8t9UGd5Gt-_Jl?usp=sharing
+Link for the Recipe Dataset : https://drive.google.com/drive/folders/1utUAJM8eaz-vBJyMeL6PxBdm6b_YIbAL?usp=sharing
