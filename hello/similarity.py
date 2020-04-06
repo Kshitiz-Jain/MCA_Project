@@ -30,7 +30,7 @@ for k in d5.keys():
     unique = {}
     #adjust this threshold
     threshold = 0.05
-    for i in range(0,len(pics),5):
+    for i in range(0,len(pics),8):
         for j in range(i+1,min(len(pics),i+20)):
             f1 = pics[i][0]
             f2 = pics[j][0]
@@ -53,7 +53,7 @@ for k in d5.keys():
         #cv2.imwrite(path+str(i)+'.png',pics[i][0])
     dict5[k] = unique_images
     print(k)
-file = open('d7.pkl','wb')
+file = open('d8.pkl','wb')
 pickle.dump(dict5,file)
 file.close()
             
