@@ -1,0 +1,92 @@
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/miscc/config.py:103: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  yaml_cfg = edict(yaml.load(f))
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torchvision/transforms/transforms.py:220: UserWarning: The use of the transforms.Scale transform is deprecated, please use transforms.Resize instead.
+  "please use transforms.Resize instead.")
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torch/nn/modules/rnn.py:50: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.5 and num_layers=1
+  "num_layers={}".format(dropout, num_layers))
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/miscc/utils.py:295: UserWarning: nn.init.orthogonal is now deprecated in favor of nn.init.orthogonal_.
+  nn.init.orthogonal(m.weight.data, 1.0)
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/miscc/utils.py:290: UserWarning: nn.init.orthogonal is now deprecated in favor of nn.init.orthogonal_.
+  nn.init.orthogonal(m.weight.data, 1.0)
+Using config:
+{'B_VALIDATION': False,
+ 'CONFIG_NAME': 'attn2',
+ 'CUDA': False,
+ 'DATASET_NAME': 'recipe',
+ 'DATA_DIR': '../data/recipe',
+ 'GAN': {'B_ATTENTION': True,
+         'B_DCGAN': False,
+         'CONDITION_DIM': 100,
+         'DF_DIM': 96,
+         'GF_DIM': 48,
+         'R_NUM': 3,
+         'Z_DIM': 100},
+ 'GPU_ID': 0,
+ 'RNN_TYPE': 'LSTM',
+ 'TEXT': {'CAPTIONS_PER_IMAGE': 1, 'EMBEDDING_DIM': 188, 'WORDS_NUM': 12052},
+ 'TRAIN': {'BATCH_SIZE': 8,
+           'B_NET_D': False,
+           'DISCRIMINATOR_LR': 0.0002,
+           'ENCODER_LR': 0.0002,
+           'FLAG': True,
+           'GENERATOR_LR': 0.0002,
+           'MAX_EPOCH': 600,
+           'NET_E': '/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/output/recipe_DAMSM_2020_04_26_11_12_07/Model/text_encoder50.pth',
+           'NET_G': '',
+           'RNN_GRAD_CLIP': 0.25,
+           'SMOOTH': {'GAMMA1': 5.0,
+                      'GAMMA2': 5.0,
+                      'GAMMA3': 10.0,
+                      'LAMBDA': 1.0},
+           'SNAPSHOT_INTERVAL': 2000},
+ 'TREE': {'BASE_SIZE': 64, 'BRANCH_NUM': 3},
+ 'WORKERS': 1}
+Load filenames from: ../data/recipe/train/filenames.pickle (10000)
+Load filenames from: ../data/recipe/test/filenames.pickle (2000)
+Load from:  ../data/recipe/captions.pickle
+('Load pretrained model from ', 'https://download.pytorch.org/models/inception_v3_google-1a9a5a14.pth')
+Load image encoder from: /media/data_dump_1/arushi_mca/GAN_try/AttnGAN/output/recipe_DAMSM_2020_04_26_11_12_07/Model/image_encoder50.pth
+Load text encoder from: /media/data_dump_1/arushi_mca/GAN_try/AttnGAN/output/recipe_DAMSM_2020_04_26_11_12_07/Model/text_encoder50.pth
+# of netsD 3
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torch/nn/functional.py:1351: UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.
+  warnings.warn("nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.")
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/GlobalAttention.py:109: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  attn = self.sm(attn)  # Eq. (2)
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torch/nn/functional.py:2506: UserWarning: Default upsampling behavior when mode=bilinear is changed to align_corners=False since 0.4.0. Please specify align_corners=True if the old behavior is desired. See the documentation of nn.Upsample for details.
+  "See the documentation of nn.Upsample for details.".format(mode))
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/GlobalAttention.py:51: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  attn = nn.Softmax()(attn)  # Eq. (8)
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/GlobalAttention.py:60: UserWarning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument.
+  attn = nn.Softmax()(attn)
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/skimage/transform/_warps.py:24: UserWarning: The default multichannel argument (None) is deprecated.  Please specify either True or False explicitly.  multichannel will default to False starting with release 0.16.
+  warn('The default multichannel argument (None) is deprecated.  Please '
+errD0: 0.90 errD0: 0.90 errD1: 1.09 errD1: 1.09 errD2: 1.05 errD2: 1.05 
+g_loss0: 5.67 g_loss1: 11.87 g_loss2: 4.91 w_loss: 4.49 s_loss: 5.67 kl_loss: 0.00 
+errD0: 1.36 errD0: 1.36 errD1: 1.28 errD1: 1.28 errD2: 1.39 errD2: 1.39 
+g_loss0: 3.23 g_loss1: 2.42 g_loss2: 1.73 w_loss: 4.08 s_loss: 4.04 kl_loss: 0.00 
+errD0: 1.21 errD0: 1.21 errD1: 1.20 errD1: 1.20 errD2: 1.31 errD2: 1.31 
+g_loss0: 1.64 g_loss1: 0.98 g_loss2: 3.06 w_loss: 4.49 s_loss: 3.92 kl_loss: 0.01 
+errD0: 1.58 errD0: 1.58 errD1: 1.08 errD1: 1.08 errD2: 1.36 errD2: 1.36 
+g_loss0: 6.51 g_loss1: 4.83 g_loss2: 1.52 w_loss: 4.22 s_loss: 5.16 kl_loss: 0.00 
+errD0: 1.40 errD0: 1.40 errD1: 1.32 errD1: 1.32 errD2: 1.26 errD2: 1.26 
+g_loss0: 7.93 g_loss1: 3.42 g_loss2: 1.67 w_loss: 4.16 s_loss: 4.63 kl_loss: 0.00 
+errD0: 0.88 errD0: 0.88 errD1: 1.17 errD1: 1.17 errD2: 1.42 errD2: 1.42 
+g_loss0: 4.00 g_loss1: 1.92 g_loss2: 1.82 w_loss: 4.07 s_loss: 4.13 kl_loss: 0.00 
+errD0: 1.16 errD0: 1.16 errD1: 0.79 errD1: 0.79 errD2: 0.70 errD2: 0.70 
+g_loss0: 8.94 g_loss1: 5.80 g_loss2: 5.13 w_loss: 4.10 s_loss: 4.43 kl_loss: 0.00 
+errD0: 0.85 errD0: 0.85 errD1: 1.61 errD1: 1.61 errD2: 1.40 errD2: 1.40 
+g_loss0: 4.19 g_loss1: 3.40 g_loss2: 0.70 w_loss: 3.52 s_loss: 4.86 kl_loss: 0.00 
+errD0: 0.76 errD0: 0.76 errD1: 0.84 errD1: 0.84 errD2: 1.13 errD2: 1.13 
+g_loss0: 6.01 g_loss1: 5.65 g_loss2: 2.23 w_loss: 4.10 s_loss: 4.77 kl_loss: 0.00 
+errD0: 0.72 errD0: 0.72 errD1: 0.62 errD1: 0.62 errD2: 1.15 errD2: 1.15 
+g_loss0: 8.41 g_loss1: 4.71 g_loss2: 2.51 w_loss: 3.98 s_loss: 5.03 kl_loss: 0.00 
+errD0: 0.83 errD0: 0.83 errD1: 1.10 errD1: 1.10 errD2: 1.30 errD2: 1.30 
+g_loss0: 5.86 g_loss1: 5.11 g_loss2: 1.85 w_loss: 4.28 s_loss: 4.85 kl_loss: 0.00 
+errD0: 1.03 errD0: 1.03 errD1: 0.88 errD1: 0.88 errD2: 0.99 errD2: 0.99 
+g_loss0: 8.01 g_loss1: 8.68 g_loss2: 3.07 w_loss: 3.42 s_loss: 3.95 kl_loss: 0.00 
+Traceback (most recent call last):
+  File "main.py", line 145, in <module>
+    algo.train()
+  File "/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/trainer.py", line 323, in train
+    errD_total.data[0], errG_total.data[0],
+IndexError: invalid index of a 0-dim tensor. Use tensor.item() to convert a 0-dim tensor to a Python number

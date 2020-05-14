@@ -1,0 +1,30 @@
+CONFIG_NAME: 'attn2'
+
+DATASET_NAME: 'recipe'
+DATA_DIR: '../data/recipe'
+GPU_ID: -1
+WORKERS: 1
+
+B_VALIDATION: False  # True  # False
+TREE:
+    BRANCH_NUM: 3
+
+
+TRAIN:
+    FLAG: False
+    NET_G: '../models/netG_epoch_101.pth'
+    B_NET_D: False
+    BATCH_SIZE: 4
+    NET_E: '../DAMSMencoders/recipe/text_encoder50.pth'
+
+
+GAN:
+    DF_DIM: 96
+    GF_DIM: 48
+    Z_DIM: 100
+    R_NUM: 3
+
+TEXT:
+    EMBEDDING_DIM: 188
+    CAPTIONS_PER_IMAGE: 1
+    WORDS_NUM: 12052

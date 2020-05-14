@@ -1,0 +1,137 @@
+/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/miscc/config.py:103: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  yaml_cfg = edict(yaml.load(f))
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torchvision/transforms/transforms.py:220: UserWarning: The use of the transforms.Scale transform is deprecated, please use transforms.Resize instead.
+  "please use transforms.Resize instead.")
+/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torch/nn/modules/rnn.py:50: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.5 and num_layers=1
+  "num_layers={}".format(dropout, num_layers))
+Using config:
+{'B_VALIDATION': False,
+ 'CONFIG_NAME': 'attn2',
+ 'CUDA': True,
+ 'DATASET_NAME': 'recipe',
+ 'DATA_DIR': '../data/recipe',
+ 'GAN': {'B_ATTENTION': True,
+         'B_DCGAN': False,
+         'CONDITION_DIM': 100,
+         'DF_DIM': 64,
+         'GF_DIM': 32,
+         'R_NUM': 2,
+         'Z_DIM': 100},
+ 'GPU_ID': 0,
+ 'RNN_TYPE': 'LSTM',
+ 'TEXT': {'CAPTIONS_PER_IMAGE': 1, 'EMBEDDING_DIM': 188, 'WORDS_NUM': 25},
+ 'TRAIN': {'BATCH_SIZE': 100,
+           'B_NET_D': False,
+           'DISCRIMINATOR_LR': 0.0002,
+           'ENCODER_LR': 0.0002,
+           'FLAG': False,
+           'GENERATOR_LR': 0.0002,
+           'MAX_EPOCH': 101,
+           'NET_E': '../DAMSMencoders/recipe/text_encoder50.pth',
+           'NET_G': '../models/netG_epoch_101.pth',
+           'RNN_GRAD_CLIP': 0.25,
+           'SMOOTH': {'GAMMA1': 5.0,
+                      'GAMMA2': 5.0,
+                      'GAMMA3': 10.0,
+                      'LAMBDA': 1.0},
+           'SNAPSHOT_INTERVAL': 2000},
+ 'TREE': {'BASE_SIZE': 64, 'BRANCH_NUM': 3},
+ 'WORKERS': 1}
+Load filenames from: ../data/recipe/train/filenames.pickle (10000)
+Load filenames from: ../data/recipe/test/filenames.pickle (2000)
+Load from:  ../data/recipe/captions.pickle
+no gen
+Load from: example_captions
+sent 
+Load text encoder from: ../DAMSMencoders/recipe/text_encoder50.pth
+Traceback (most recent call last):
+  File "main.py", line 157, in <module>
+    gen_example(dataset.wordtoix, algo)  # generate images for customized captions
+  File "main.py", line 93, in gen_example
+    algo.gen_example(data_dic)
+  File "/media/data_dump_1/arushi_mca/GAN_try/AttnGAN/code/trainer.py", line 457, in gen_example
+    netG.load_state_dict(state_dict)
+  File "/home/arushi_mca/.conda/envs/MCAProject/lib/python2.7/site-packages/torch/nn/modules/module.py", line 830, in load_state_dict
+    self.__class__.__name__, "\n\t".join(error_msgs)))
+RuntimeError: Error(s) in loading state_dict for G_NET:
+	Unexpected key(s) in state_dict: "h_net2.residual.2.block.0.weight", "h_net2.residual.2.block.1.weight", "h_net2.residual.2.block.1.bias", "h_net2.residual.2.block.1.running_mean", "h_net2.residual.2.block.1.running_var", "h_net2.residual.2.block.1.num_batches_tracked", "h_net2.residual.2.block.3.weight", "h_net2.residual.2.block.4.weight", "h_net2.residual.2.block.4.bias", "h_net2.residual.2.block.4.running_mean", "h_net2.residual.2.block.4.running_var", "h_net2.residual.2.block.4.num_batches_tracked", "h_net3.residual.2.block.0.weight", "h_net3.residual.2.block.1.weight", "h_net3.residual.2.block.1.bias", "h_net3.residual.2.block.1.running_mean", "h_net3.residual.2.block.1.running_var", "h_net3.residual.2.block.1.num_batches_tracked", "h_net3.residual.2.block.3.weight", "h_net3.residual.2.block.4.weight", "h_net3.residual.2.block.4.bias", "h_net3.residual.2.block.4.running_mean", "h_net3.residual.2.block.4.running_var", "h_net3.residual.2.block.4.num_batches_tracked". 
+	size mismatch for h_net1.fc.0.weight: copying a param with shape torch.Size([24576, 200]) from checkpoint, the shape in current model is torch.Size([16384, 200]).
+	size mismatch for h_net1.fc.1.running_var: copying a param with shape torch.Size([24576]) from checkpoint, the shape in current model is torch.Size([16384]).
+	size mismatch for h_net1.fc.1.bias: copying a param with shape torch.Size([24576]) from checkpoint, the shape in current model is torch.Size([16384]).
+	size mismatch for h_net1.fc.1.weight: copying a param with shape torch.Size([24576]) from checkpoint, the shape in current model is torch.Size([16384]).
+	size mismatch for h_net1.fc.1.running_mean: copying a param with shape torch.Size([24576]) from checkpoint, the shape in current model is torch.Size([16384]).
+	size mismatch for h_net1.upsample1.1.weight: copying a param with shape torch.Size([768, 768, 3, 3]) from checkpoint, the shape in current model is torch.Size([512, 512, 3, 3]).
+	size mismatch for h_net1.upsample1.2.running_var: copying a param with shape torch.Size([768]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for h_net1.upsample1.2.bias: copying a param with shape torch.Size([768]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for h_net1.upsample1.2.weight: copying a param with shape torch.Size([768]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for h_net1.upsample1.2.running_mean: copying a param with shape torch.Size([768]) from checkpoint, the shape in current model is torch.Size([512]).
+	size mismatch for h_net1.upsample2.1.weight: copying a param with shape torch.Size([384, 384, 3, 3]) from checkpoint, the shape in current model is torch.Size([256, 256, 3, 3]).
+	size mismatch for h_net1.upsample2.2.running_var: copying a param with shape torch.Size([384]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for h_net1.upsample2.2.bias: copying a param with shape torch.Size([384]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for h_net1.upsample2.2.weight: copying a param with shape torch.Size([384]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for h_net1.upsample2.2.running_mean: copying a param with shape torch.Size([384]) from checkpoint, the shape in current model is torch.Size([256]).
+	size mismatch for h_net1.upsample3.1.weight: copying a param with shape torch.Size([192, 192, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 128, 3, 3]).
+	size mismatch for h_net1.upsample3.2.running_var: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net1.upsample3.2.bias: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net1.upsample3.2.weight: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net1.upsample3.2.running_mean: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net1.upsample4.1.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net1.upsample4.2.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net1.upsample4.2.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net1.upsample4.2.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net1.upsample4.2.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for img_net1.img.0.weight: copying a param with shape torch.Size([3, 48, 3, 3]) from checkpoint, the shape in current model is torch.Size([3, 32, 3, 3]).
+	size mismatch for h_net2.att.conv_context.weight: copying a param with shape torch.Size([48, 188, 1, 1]) from checkpoint, the shape in current model is torch.Size([32, 188, 1, 1]).
+	size mismatch for h_net2.residual.0.block.0.weight: copying a param with shape torch.Size([192, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 64, 3, 3]).
+	size mismatch for h_net2.residual.0.block.1.running_var: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.0.block.1.bias: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.0.block.1.weight: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.0.block.1.running_mean: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.0.block.3.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net2.residual.0.block.4.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.0.block.4.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.0.block.4.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.0.block.4.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.1.block.0.weight: copying a param with shape torch.Size([192, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 64, 3, 3]).
+	size mismatch for h_net2.residual.1.block.1.running_var: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.1.block.1.bias: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.1.block.1.weight: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.1.block.1.running_mean: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net2.residual.1.block.3.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net2.residual.1.block.4.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.1.block.4.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.1.block.4.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.residual.1.block.4.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.upsample.1.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net2.upsample.2.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.upsample.2.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.upsample.2.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net2.upsample.2.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for img_net2.img.0.weight: copying a param with shape torch.Size([3, 48, 3, 3]) from checkpoint, the shape in current model is torch.Size([3, 32, 3, 3]).
+	size mismatch for h_net3.att.conv_context.weight: copying a param with shape torch.Size([48, 188, 1, 1]) from checkpoint, the shape in current model is torch.Size([32, 188, 1, 1]).
+	size mismatch for h_net3.residual.0.block.0.weight: copying a param with shape torch.Size([192, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 64, 3, 3]).
+	size mismatch for h_net3.residual.0.block.1.running_var: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.0.block.1.bias: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.0.block.1.weight: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.0.block.1.running_mean: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.0.block.3.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net3.residual.0.block.4.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.0.block.4.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.0.block.4.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.0.block.4.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.1.block.0.weight: copying a param with shape torch.Size([192, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([128, 64, 3, 3]).
+	size mismatch for h_net3.residual.1.block.1.running_var: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.1.block.1.bias: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.1.block.1.weight: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.1.block.1.running_mean: copying a param with shape torch.Size([192]) from checkpoint, the shape in current model is torch.Size([128]).
+	size mismatch for h_net3.residual.1.block.3.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net3.residual.1.block.4.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.1.block.4.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.1.block.4.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.residual.1.block.4.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.upsample.1.weight: copying a param with shape torch.Size([96, 96, 3, 3]) from checkpoint, the shape in current model is torch.Size([64, 64, 3, 3]).
+	size mismatch for h_net3.upsample.2.running_var: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.upsample.2.bias: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.upsample.2.weight: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for h_net3.upsample.2.running_mean: copying a param with shape torch.Size([96]) from checkpoint, the shape in current model is torch.Size([64]).
+	size mismatch for img_net3.img.0.weight: copying a param with shape torch.Size([3, 48, 3, 3]) from checkpoint, the shape in current model is torch.Size([3, 32, 3, 3]).
